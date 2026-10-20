@@ -1,6 +1,2 @@
-Fedora build and corresponding boot partition image for Xiaomi Mi 8 Pro (equuleus)
-
-Many thanks to https://github.com/redyuan43/xiaomi_8 for providing the boot image, DTB, and kernel for the equuleus device. 
-I modified the mounting logic to use UUID="5ca4e0e7-a36d-4cb9-ad2f-f880c1d2bfc1" as the root partition and switch to it to launch the Fedora user space via systemd. 
-You can connect to the Fedora instance running on the equuleus via SSH (using `ssh root@192.168.240.100`) through the virtual Ethernet interface that appears when connected to the host Linux distribution (please ensure no other network device on the LAN is using this IP address); the default password is `admin`.
-
+Update Log for October 20
+This update upgrades the system kernel to Linux 7.1.0-rc1-sdm845 #5-postmarketos-qcom-sdm845 SMP PREEMPT (aarch64). This release consists solely of the kernel (packaged as a boot image; the device tree source file used can be found here: https://github.com/redyuan43/xiaomi_8/blob/main/kernel/arch/arm64/boot/dts/qcom/sdm845-xiaomi-equuleus.dts). The update package does not include a root filesystem (rootfs); you will need to build postmarketOS yourself using `pmbootstrap`. The IP address for SSH connections is 172.16.42.1. We will provide a root filesystem once the drivers are sufficiently mature.
